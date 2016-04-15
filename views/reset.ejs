@@ -1,0 +1,26 @@
+<% header = { title: 'Reset Password' } %>
+<% include partials/header %>
+<div layout="row" layout-xs="column" layout-align="center center" ng-controller="ResetController">
+<md-card flex flex-gt-xs="60" flex-gt-md="40">
+  <form name="localForm" method="post" ng-submit="doReset()">
+    <md-card-title class="bordered"><md-card-title-text><span class="md-headline">Reset Password</span></md-card-title-text></md-card-title>
+    <md-card-content layout="column">
+      <p>Login with one of your existing accounts from another web site</p>
+      <div flex layout="row" layout-align="start center">
+        <md-input-container flex flex-gt-sm="80" flex-gt-md="60">
+          <label>Username</label>
+          <input required id="username" name="username" ng-model="model.username" maxlength="100" autocomplete="off">
+          <div ng-messages="localForm.username.$error" ng-if="localForm.username.$invalid && (localForm.username.$touched || localForm.$submitted)">
+            <div ng-message="server" ng-show="localForm.username.$error.server">{{serverErrors.username}}</div>
+            <div ng-message="required" ng-show="localForm.username.$error.required">Username is required.</div>
+          </div>
+        </md-input-container>
+      </div>
+    </md-card-content>
+    <md-card-actions layout="row" layout-align="end center">
+      <md-button type="submit" ng-disabled="localForm.$invalid">Reset Password</md-button>
+    </md-card-actions>
+  </form>
+</md-card>
+</div>
+<% include partials/footer %>
