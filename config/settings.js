@@ -1,5 +1,6 @@
 // expose our config directly to our application using module.exports
 module.exports = {
+  'siteRoot':  '/',
   'oidc' : {
     'authority'     : '',
     'clientID'      : '', // your App ID
