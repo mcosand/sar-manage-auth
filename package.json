@@ -11,10 +11,12 @@
     "express-session": "~1.0.0",
     "method-override": "~1.0.0",
     "morgan": "~1.0.0",
+    "nodemailer": "^2.3.2",
     "oauth": "mcosand/node-oauth",
     "passport": "~0.1.17",
     "passport-openidconnect": "mcosand/passport-openidconnect#simple-hybrid",
     "sequelize": "^3.21.0",
+    "tedious": "^1.14.0",
     "underscore": "^1.8.3"
   }
 }

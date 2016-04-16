@@ -1,3 +1,4 @@
+var config = require('../config/settings')
 var _ = require('underscore')
 var express = require('express')
 var accounts = require('./services/accounts')
@@ -9,9 +10,10 @@ module.exports = function(app) {
     res.json({thing: "value"});
   });
   api.post('/reset/:username', function(req, res) {
-    var result = accounts.reset(req.params.username);
-    res.json({success: result});
+    accounts.reset(req.params.username)
+    .then(function(email) { res.json({success: true, result: email }) })
+    .catch(function(err) { console.log(err); res.status(err.status).send(err.text); })
   })
   
-  app.use('/api', api);
+  app.use(config.siteRoot + 'api', api);
 };
